@@ -10,10 +10,10 @@ import authenticate from './src/middlewares/authenticate';
 function initAuthModule(customRepository, app) {
     setUserRepository(customRepository);
 
-    app.post('/signup', signup);
-    app.post('/login', login);
+    app.post('/auth/signup', signup);
+    app.post('/auth/login', login);
     // app.post('/forgot-password', login);
     // app.post('/change-password', authenticate, login);
 }
 
-export default initAuthModule;
+module.exports = initAuthModule;

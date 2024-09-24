@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcrypt');
 
 let envSaltRound = process.env.SALT_ROUND;
 

@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 const envJwtSecret = process.env.JWT_SECRET;
 const envJwtExpiration = process.env.JWT_EXPIRATION;
@@ -39,4 +39,4 @@ class JwtStrategy {
     }
 }
 
-export default JwtStrategy;
+module.exports = JwtStrategy;

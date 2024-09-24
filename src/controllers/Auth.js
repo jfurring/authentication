@@ -1,5 +1,5 @@
-import BcryptStrategy from '../strategies/BcryptStrategy';
-import JwtStrategy from '../strategies/JwtStrategy';
+const BcryptStrategy = require('../strategies/BcryptStrategy');
+const JwtStrategy = require('../strategies/JwtStrategy');
 
 module.exports = (userRepository) => ({
     signup: async (req, res) => {
@@ -15,7 +15,7 @@ module.exports = (userRepository) => ({
             });
         } else {
             let code = error.code || 400;
-            return res.statusCode(code).json({
+            return res.status(code).json({
                 message: 'Sign Up failed',
                 error,
             });
@@ -23,9 +23,8 @@ module.exports = (userRepository) => ({
     },
 
     login: async (req, res) => {
-        const { password, email, mobile } = req.body;
-        
         let user;
+        const { password, email, mobile } = req.body;
 
         if (email) {
             user = await userRepository.findUserByEmail(email);
@@ -36,7 +35,7 @@ module.exports = (userRepository) => ({
 
         const hashedPassword = BcryptStrategy.encoded(password);
         if (!user || !BcryptStrategy.compareEncoded(hashedPassword, password)) {
-            return res.statusCode(404).json({
+            return res.status(400).json({
                 message: 'Invalid email or password'
             });
         }

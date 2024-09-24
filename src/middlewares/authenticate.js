@@ -1,4 +1,4 @@
-import JwtStrategy from "../strategies/JwtStrategy";
+const JwtStrategy = require("../strategies/JwtStrategy");
 
 function authenticate(req, res, next) {
     let token = req.headers.authorization || req.headers.Authorization;
@@ -21,4 +21,4 @@ function authenticate(req, res, next) {
     }
 }
 
-export default authenticate;
+module.exports = authenticate;

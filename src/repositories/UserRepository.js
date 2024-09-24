@@ -8,4 +8,4 @@ class UserRepository {
     }
 }
 
-export default UserRepository;
+module.exports = UserRepository;
