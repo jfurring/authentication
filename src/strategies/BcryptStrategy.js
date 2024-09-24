@@ -24,4 +24,4 @@ class BcryptStrategy {
     }
 }
 
-export default BcryptStrategy;
+module.exports = BcryptStrategy;
