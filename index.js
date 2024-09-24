@@ -5,7 +5,7 @@ const setUserRepository = (customRepository) => {
 }
 
 let { signup, login } = require('./src/controllers/Auth')(userRepository);
-import authenticate from './src/middlewares/authenticate';
+const authenticate = require('./src/middlewares/authenticate');
 
 function initAuthModule(customRepository, app) {
     setUserRepository(customRepository);
